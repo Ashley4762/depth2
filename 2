@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main(void) {
+    int day = 0;
+    double depth, climb, slide_back;
+    double height = 0.0;
+
+    // รับค่า 1 ครั้ง ก่อนเข้าลูป
+    printf("ความลึกของบ่อ: ");
+    scanf("%lf", &depth);
+    printf("ไต่ขึ้นบ่อ (เมตร/วัน): ");
+    scanf("%lf", &climb);
+    printf("ไถลกลับ (เมตร ในวันคู่): ");
+    scanf("%lf", &slide_back);
+
+    while (height < depth) {
+        day++;
+
+        if (day % 2 == 1) {
+            // วันคี่: ไต่ขึ้น
+            height += climb;
+            printf("วัน %d (คี่): +%.2f = สูง %.2f\n", day, climb, height);
+        } else {
+            // วันคู่: สไลด์ลง
+            height -= slide_back;
+            if (height < 0) height = 0;
+            printf("วัน %d (คู่): -%.2f = สูง %.2f\n", day, slide_back, height);
+        }
+
+        // ✅ เช็กหลังจบการเปลี่ยนแปลงของวันนั้น (อยู่นอก if/else แต่อยู่ใน while)
+        if (height >= depth) {
+            printf("\n✅ หอยทากออกจากบ่อได้ในวันที %d!\n", day);
+            return 0; // จบโปรแกรมทันที
+        }
+    }
+
+    return 0;
+}
