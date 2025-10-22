@@ -18,11 +18,11 @@ int main(void) {
 
         if (day % 2 == 1) {
             // วันคี่: ไต่ขึ้น
-            height += climb;
+            height = height + climb;
             printf("วัน %d (คี่): +%.2f = สูง %.2f\n", day, climb, height);
         } else {
             // วันคู่: สไลด์ลง
-            height -= slide_back;
+            height = height -  slide_back;
             if (height < 0) height = 0;
             printf("วัน %d (คู่): -%.2f = สูง %.2f\n", day, slide_back, height);
         }
@@ -36,3 +36,4 @@ int main(void) {
 
     return 0;
 }
+
