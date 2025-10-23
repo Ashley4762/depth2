@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define PI 3.141592653589793
+
+int main(void) {
+    double outercircleradius;      // รัศมีวงกลมด้านนอกของแม่พิมพ์ (ซม.)
+    double innercutoutradius;      // รัศมีวงกลมเว้าที่ถูกตัดออก (ซม.)
+    double moldtotalArea;         // พื้นที่แม่พิมพ์ทั้งหมด (ตร.ซม.)
+    double cutoutArea;             // พื้นที่ส่วนเว้า (ตร.ซม.)
+    double usablecakeArea;        // พื้นที่ที่ทำขนมได้จริง (ตร.ซม.)
+    double moldutilization;    // อัตราการใช้ประโยชน์ของแม่พิมพ์ (%)
+
+    printf("รัศมีวงกลมด้านนอกของแม่พิมพ์ (ซม.): ");
+    scanf("%lf", &outercircleradius);
+
+    printf("รัศมีวงกลมเว้าที่ตัดออก (ซม.): ");
+    scanf("%lf", &innercutoutradius);
+
+    /* คำนวณพื้นที่ */
+    moldtotalArea     = PI * outercircleradius * outercircleradius;
+    cutoutArea       = PI * innercutoutradius * innercutoutradius;
+    usablecakeArea     = moldtotalArea - cutoutArea;
+    moldutilization = (usablecakeArea / moldtotalArea) * 100.0;
+
+    /* แสดงผล */
+    printf("\nพื้นที่แม่พิมพ์ทั้งหมด = %.2f ตร.ซม.\n", moldtotalArea);
+    printf("พื้นที่ขนมจริง (หลังหักส่วนเว้า) = %.2f ตร.ซม.\n", usablecakeArea);
+    printf("อัตราการใช้แม่พิมพ์ = %.2f%%\n", moldutilization);
+
+    return 0;
+}
