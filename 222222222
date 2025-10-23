@@ -1,1 +1,33 @@
+#include<string.h>
+#include <math.h>
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    int hour,minute;
+    double hour_angle , minute_angle,angle;
+    //รับค่า
+    printf("กรอกเวลาชม\n");
+    scanf("%d",&hour);
+    printf("กรอกเวลานาท\n");
+    scanf("%d",&minute);
+    // ปรับชมให้ไม่เกิน 12 ชม
+    hour = hour % 12;
+
+    //ตำเเหน่งเข็มชม
+    hour_angle = (hour * 30.0) + (minute * 0.5);
+   // ตำเเหน่งเข็มนาที
+    minute_angle = minute * 6.0;
+    angle = fabs(hour_angle-minute_angle);
+    if (angle > 180) angle = 360 - angle;
+
+    printf("มุมระหว่างเข็มชมกับเข็มนาที %.2f องศา\n",angle);
+
+
+     "ตอนนี้เวลา 17 นาฬิกา 15 นาที";
+
+
+    return 0;
+
+}
 
