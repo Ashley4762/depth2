@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <math.h>
+int main(void){
+    double x0,y0,R, x1,y1, x2,y2, x3,y3;
+    printf("ศูนย์กลางวงกลม x0 y0 และ รัศมี R: ");
+    scanf("%lf %lf %lf",&x0,&y0,&R);
+    printf("จุด A(x1 y1): "); scanf("%lf %lf",&x1,&y1);
+    printf("จุด B(x2 y2): "); scanf("%lf %lf",&x2,&y2);
+    printf("จุด C(x3 y3): "); scanf("%lf %lf",&x3,&y3);
+
+    double R2 = R*R, eps = 1e-9;
+    double dA2 = (x1-x0)*(x1-x0) + (y1-y0)*(y1-y0);
+    double dB2 = (x2-x0)*(x2-x0) + (y2-y0)*(y2-y0);
+    double dC2 = (x3-x0)*(x3-x0) + (y3-y0)*(y3-y0);
+
+    int inside = (dA2 <= R2+eps) && (dB2 <= R2+eps) && (dC2 <= R2+eps);
+    printf("ผลลัพธ์: สามเหลี่ยม%sอยู่ในวงกลม\n", inside? "" : "ไม่");
+    return 0;
+}
