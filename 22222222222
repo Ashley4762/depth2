@@ -1,1 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>  // สำหรับ rand(), srand()
+#include <time.h>    // สำหรับ time()
+
+int main(void) {
+    int A[10];   // จักรวาล A (10 ช่อง)
+    int B[5];    // จักรวาล B (5 ช่อง)
+    int i;
+
+    srand(time(NULL)); // ตั้งค่า seed ให้สุ่มต่างกันทุกครั้ง
+
+    // ----- สุ่มค่าจักรวาล A -----
+    printf("จักรวาล A (สุ่มเลข 0-9):\n");
+    for (i = 0; i < 10; i++) {
+        A[i] = random() % 10;  // สุ่มเลข 0-9
+        printf("%d ", A[i]);
+    }
+
+    // ----- หาค่าเฉลี่ยของแต่ละดินแดน -----
+    double avg1 = (A[0]+A[1]+A[2]) / 3.0;
+    double avg2 = (A[3]+A[4]+A[5]+A[6]) / 4.0;
+    double avg3 = (A[7]+A[8]+A[9]) / 3.0;
+
+    printf("\n\nค่าเฉลี่ยดินแดน 1 = %.2f\n", avg1);
+    printf("ค่าเฉลี่ยดินแดน 2 = %.2f\n", avg2);
+    printf("ค่าเฉลี่ยดินแดน 3 = %.2f\n", avg3);
+
+    // ----- สุ่มค่าจักรวาล B -----
+    printf("\nจักรวาล B (สุ่มเลข 0-9):\n");
+    for (i = 0; i < 5; i++) {
+        B[i] = random() % 10;
+        printf("%d ", B[i]);
+    }
+    printf("\n");
+
+    // ----- จัดสมาชิก B เข้าดินแดน -----
+    printf("\nผลการย้ายสมาชิกของจักรวาล B:\n");
+    for (i = 0; i < 5; i++) {
+        double n = B[i];
+        if (n <= avg1) {
+            printf("B[%d]=%d → อยู่ดินแดน 1\n", i, B[i]);
+        } else if (n <= avg2) {
+            printf("B[%d]=%d → อยู่ดินแดน 2\n", i, B[i]);
+        } else {
+            printf("B[%d]=%d → อยู่ดินแดน 3\n", i, B[i]);
+        }
+    }
+
+    return 0;
+}
+
 
