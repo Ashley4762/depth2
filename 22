@@ -1,1 +1,39 @@
+#include <stdio.h>
+
+int main(void) {
+    double distanceStraight;   // ระยะตรงจากบ้านถึงโรงเรียน (เมตร)
+    int obstacleCount;         // จำนวนสิ่งกีดขวาง
+    double sideDetour;         // ระยะอ้อมแต่ละข้าง (เมตร)
+    double totalDistance;      // ระยะทางจริงที่ต้องเดิน
+    double speed;              // ความเร็วของหุ่นยนต์ (เมตร/วินาที)
+    double timeNeeded;         // เวลาเดินทาง (วินาที)
+
+    // ====== รับค่าจากผู้ใช้ ======
+    printf("ระยะทางตรงจากบ้านถึงโรงเรียน (เมตร): ");
+    scanf("%lf", &distanceStraight);
+
+    printf("จำนวนสิ่งกีดขวาง: ");
+    scanf("%d", &obstacleCount);
+
+    printf("ระยะที่หุ่นอ้อมแต่ละข้าง (เมตร): ");
+    scanf("%lf", &sideDetour);
+
+    printf("ความเร็วของหุ่นยนต์ (เมตร/วินาที): ");
+    scanf("%lf", &speed);
+
+    // ====== คำนวณ ======
+    totalDistance = distanceStraight + (2 * sideDetour * obstacleCount);
+    timeNeeded = totalDistance / speed;
+
+    // ====== แสดงผล ======
+    printf("\n----- ผลลัพธ์การคำนวณเส้นทาง -----\n");
+    printf("ระยะทางตรงจากบ้านถึงโรงเรียน : %.2f เมตร\n", distanceStraight);
+    printf("จำนวนสิ่งกีดขวาง                : %d ชิ้น\n", obstacleCount);
+    printf("หุ่นอ้อมข้างละ                 : %.2f เมตร\n", sideDetour);
+    printf("ระยะทางจริงที่ต้องเดิน         : %.2f เมตร\n", totalDistance);
+    printf("เวลาที่ใช้เดิน (ที่ความเร็ว %.2f m/s): %.2f วินาที\n",
+           speed, timeNeeded);
+
+    return 0;
+}
 
