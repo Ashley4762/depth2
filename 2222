@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+    int    wheels;                   // จำนวนล้อทั้งหมด ตัวแปร N
+    double area;                // พื้นที่สัมผัสต่อยาง A (ซม.^2)
+    double weight_kg;           // น้ำหนักเครื่อง W (กก. ~ กก.-แรง)
+    double pressure_kg_;       // ความดันที่ล้อรับ P (กก./ซม.^2)
+
+    printf("จำนวนล้อ: ");
+    scanf("%d", &wheels);
+
+    printf("พื้นที่สัมผัสต่อยาง (ตารางซม.): ");
+    scanf("%lf", &area);
+
+    printf("น้ำหนักเครื่องบิน (กิโลกรัม): ");
+    scanf("%lf", &weight_kg);
+    
+    //
+     pressure_kg_ = weight_kg / (wheels * area);
+     printf("\nความดันที่ล้อแต่ละล้อรับ: %.2f กก./ซม.^2\n", pressure_kg_);
+    return 0;
+}
